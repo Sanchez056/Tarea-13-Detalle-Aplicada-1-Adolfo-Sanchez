@@ -10,18 +10,21 @@ namespace Entidades
 {
    public class Estudiantes
     {
+        public Estudiantes()
+        {
+            this.Grupos= new HashSet<Grupos>();
+        }
 
         [Key]
         public int EstudianteId { get; set; }
         public string Nombres{ get; set; }
 
 
+       //public virtual ICollection<Grupos> Grupos { get; set; }
+       //public virtual ICollection<GruposEstudiantes> grupos { get; set; }
+
         public virtual ICollection<Grupos> Grupos { get; set; }
 
-        public Estudiantes()
-        {
-            this.Grupos = new HashSet<Grupos>();
-        }
 
         public Estudiantes(int estudianteId, string nombres)
         {
@@ -30,5 +33,7 @@ namespace Entidades
             this.Grupos = new HashSet<Grupos>();
 
         }
+        
+        
     }
 }

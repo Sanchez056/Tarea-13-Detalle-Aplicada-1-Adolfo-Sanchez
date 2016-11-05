@@ -14,7 +14,9 @@ namespace Entidades
         public int GrupoId { get; set; }
         public int EstudianteId { get; set; }
 
-        //public virtual List<Estudiantes> Estudiantes { get; set; }
+        public virtual List<Estudiantes> Estudiante { get; set; }
 
+       // public virtual ICollection<Estudiantes> Estudiantes { get; set; }
+       // public virtual ICollection<Grupos> Grupos { get; set; }
     }
 }

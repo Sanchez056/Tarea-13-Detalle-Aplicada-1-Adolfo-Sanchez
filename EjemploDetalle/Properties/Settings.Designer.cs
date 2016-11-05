@@ -28,9 +28,9 @@ namespace EjemploDetalle.Properties {
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\BaseDatos\\Eje" +
             "mploDetalleDb.mdf;Integrated Security=True;Connect Timeout=30")]
-        public string ConStr {
+        public string ConStrs {
             get {
-                return ((string)(this["ConStr"]));
+                return ((string)(this["ConStrs"]));
             }
         }
     }

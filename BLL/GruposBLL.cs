@@ -59,5 +59,29 @@ namespace BLL
 
             return lista;
         }
+        public static List<Grupos> GetListaGrupos(int id)
+        {
+            List<Grupos> lista = new List<Grupos>();
+
+            var db = new EjemploDetalleDb();
+
+            lista = db.Grupos.Where(p => p.GrupoId == id && p.Estudiantes.Count > 0).ToList();
+
+            return lista;
+
+        }
+
+        public static List<Grupos> GetListaNombres(string aux)
+        {
+            List<Grupos> lista = new List<Grupos>();
+
+            var db = new EjemploDetalleDb();
+
+            lista = db.Grupos.Where(p => p.Nombres == aux).ToList();
+
+            return lista;
+
+        }
+
     }
 }

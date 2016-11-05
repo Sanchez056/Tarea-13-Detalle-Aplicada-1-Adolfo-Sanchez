@@ -16,20 +16,25 @@ namespace DAL
         }
         public virtual DbSet<Grupos> Grupos { get; set; }
         public virtual DbSet<Estudiantes> Estudiantes { get; set; }
-        //public virtual DbSet<GruposEstudiantes> GrupoEstudiante { get; set; }
+
+       // public virtual DbSet<GruposEstudiantes> GrupoEstudiantes { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Grupos>()
-                .HasMany<Estudiantes>(g => g.Estudiantes)
-                .WithMany(e => e.Grupos)
-                .Map(ge =>
-                {
-                    ge.MapLeftKey("EstudianteId");
-                    ge.MapRightKey("GrupoId");
-                    ge.ToTable("GrupoEstudiantes");
-                });
+                 .HasMany<Estudiantes>(g => g.Estudiantes)
+                 .WithMany(e => e.Grupos)
+                 .Map(ge =>
+                 {
+                     ge.MapLeftKey("GrupoId");
+                     ge.MapRightKey("EstudianteId");
+                     ge.ToTable("GruposEstudiantes");
+                 });
+            
+
+
+
         }
 
 
