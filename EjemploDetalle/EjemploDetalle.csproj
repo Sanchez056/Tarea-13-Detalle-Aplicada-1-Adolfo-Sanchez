@@ -95,7 +95,7 @@
     <Compile Include="DAL\EjemploDetalleDb.cs" />
     <Compile Include="Entidades\Estudiantes.cs" />
     <Compile Include="Entidades\Grupos.cs" />
-    <Compile Include="Entidades\GruposEstudiantes.cs" />
+    <Compile Include="Entidades\GrupoEstudiantes.cs" />
     <Compile Include="UI\Consulta\ConsultaEstudiantes.cs">
       <SubType>Form</SubType>
     </Compile>

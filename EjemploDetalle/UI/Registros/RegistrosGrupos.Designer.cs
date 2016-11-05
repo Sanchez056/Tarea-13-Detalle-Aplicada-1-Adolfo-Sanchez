@@ -166,14 +166,14 @@
             this.EstuGruposdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.EstuGruposdataGridView.Location = new System.Drawing.Point(312, 39);
             this.EstuGruposdataGridView.Name = "EstuGruposdataGridView";
-            this.EstuGruposdataGridView.Size = new System.Drawing.Size(460, 277);
+            this.EstuGruposdataGridView.Size = new System.Drawing.Size(378, 211);
             this.EstuGruposdataGridView.TabIndex = 21;
             // 
             // Insertarbutton
             // 
-            this.Insertarbutton.Location = new System.Drawing.Point(340, 348);
+            this.Insertarbutton.Location = new System.Drawing.Point(450, 256);
             this.Insertarbutton.Name = "Insertarbutton";
-            this.Insertarbutton.Size = new System.Drawing.Size(75, 23);
+            this.Insertarbutton.Size = new System.Drawing.Size(87, 42);
             this.Insertarbutton.TabIndex = 22;
             this.Insertarbutton.Text = "Insertar";
             this.Insertarbutton.UseVisualStyleBackColor = true;
@@ -199,7 +199,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(770, 383);
+            this.ClientSize = new System.Drawing.Size(702, 383);
             this.Controls.Add(this.Insertarbutton);
             this.Controls.Add(this.EstuGruposdataGridView);
             this.Controls.Add(this.label2);

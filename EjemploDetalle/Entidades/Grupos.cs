@@ -22,12 +22,12 @@ namespace Entidades
 
 
 
-        public Grupos(int grupoId, string nombreGrupo)
+       /* public Grupos(int grupoId, string nombreGrupo)
         {
             this.GrupoId = grupoId;
             this.Nombres = nombreGrupo;
             this.Estudiantes = new List<Estudiantes>();
-        }
+        }*/
 
 
     }

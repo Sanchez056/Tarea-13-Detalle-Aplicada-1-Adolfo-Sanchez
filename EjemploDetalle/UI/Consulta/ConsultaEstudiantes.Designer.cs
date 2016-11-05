@@ -80,6 +80,7 @@
             this.ConsultaEstudiantesdataGridView.Name = "ConsultaEstudiantesdataGridView";
             this.ConsultaEstudiantesdataGridView.Size = new System.Drawing.Size(529, 309);
             this.ConsultaEstudiantesdataGridView.TabIndex = 113;
+            this.ConsultaEstudiantesdataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ConsultaEstudiantesdataGridView_CellContentClick);
             // 
             // Desdelabel
             // 

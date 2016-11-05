@@ -10,29 +10,55 @@ namespace BLL
 {
     public class GruposEstudiantesBLL
     {
-       /*
-        public static List<Grupos> GetLista(int grupoId)
-         {
-             var lista = new List<Grupos>();
-             using (var db = new EjemploDetalleDb())
-             {
-                 try
-                 {
-                     lista = db.Grupos.Where(ge => ge.grupoId == grupoId).ToList();
-                 }
-                 catch (Exception e)
-                 {
+        public static void Insertar(GrupoEstudiantes gp)
+        {
+            //bool retorno = false;
+            try
+            {
+                var db = new EjemploDetalleDb();
 
-                     throw e;
-                 }
-             }
-             return lista;
-         }
-         
-    */
-    
+                db.GrupoEstudiantes.Add(gp);
+                db.SaveChanges();
+                db.Dispose();
 
-     }
+                //retorno = true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            // return retorno;
+        }
+
+
+        public static List<GrupoEstudiantes> GetLis(int grupoId)
+        {
+            var lista = new List<GrupoEstudiantes>();
+            using (var db= new EjemploDetalleDb())
+            {
+                try
+                {
+                    lista = db.GrupoEstudiantes.Where(ge => ge.GrupoId == grupoId).ToList();
+                }
+                catch (Exception)
+                {
+                }
+            }
+            return lista;
+        }
+
+        public static List<GrupoEstudiantes> GetLista()
+        {
+            List<GrupoEstudiantes> lista = new List<GrupoEstudiantes>();
+            var db = new EjemploDetalleDb();
+
+            lista = db.GrupoEstudiantes.ToList();
+            return lista;
+        }
+
+
+    }
      
     }
 

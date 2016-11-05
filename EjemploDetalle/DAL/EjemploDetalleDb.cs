@@ -17,7 +17,7 @@ namespace DAL
         public virtual DbSet<Grupos> Grupos { get; set; }
         public virtual DbSet<Estudiantes> Estudiantes { get; set; }
 
-       //public virtual DbSet<GruposEstudiantes> GrupoEstudiantes { get; set; }
+         public virtual DbSet<GrupoEstudiantes> GrupoEstudiantes { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

@@ -66,13 +66,15 @@ namespace EjemploDetalle.Registros
         {
             grupos.Nombres= NombrestextBox.Text;
             grupos.Estudiantes = grupos.Estudiantes;
-            //Es.EstudianteId = (int)SeleEstudiantescomboBox.SelectedValue;
+            SeleEstudiantescomboBox.DataSource = EstudiantesBLL.GetLista();
+            
 
         }
         private void Limpiar()
         {
             GrupoIdtextBox.Clear();
             NombrestextBox.Clear();
+            
         }
 
         private void Eliminarbutton_Click(object sender, EventArgs e)
@@ -81,6 +83,7 @@ namespace EjemploDetalle.Registros
             {
                 GruposBLL.Eliminar(ut.StringToInt(GrupoIdtextBox.Text));
                 Limpiar();
+                SeleEstudiantescomboBox.DataSource = EstudiantesBLL.GetLista();
                 MessageBox.Show("Se Elimino Corretamente");
 
             }
@@ -99,12 +102,11 @@ namespace EjemploDetalle.Registros
 
         private void  LLenarCombo()
         {
-            
-            
-               //SeleEstudiantescomboBox.DataSource = EstudiantesBLL.GetLista();
-                SeleEstudiantescomboBox.ValueMember = "EstudianteId";
-                SeleEstudiantescomboBox.DisplayMember= "Nombres";
-                SeleEstudiantescomboBox.DataSource = EstudiantesBLL.GetLista();
+
+
+            SeleEstudiantescomboBox.DataSource = EstudiantesBLL.GetLista();
+            SeleEstudiantescomboBox.DisplayMember = "Nombres";
+            SeleEstudiantescomboBox.ValueMember = "EstudianteId";
 
 
 
@@ -184,10 +186,8 @@ namespace EjemploDetalle.Registros
         //Estudiantes estudiantes = new Estudiantes();
         private void Insertarbutton_Click(object sender, EventArgs e)
         {
-            SelecionEstudianteserrorProvider.Clear();
-            var estudiantes = new Estudiantes((int)SeleEstudiantescomboBox.SelectedValue, SeleEstudiantescomboBox.Text);
-            grupos.Estudiantes.Add(estudiantes);
-            EstuGruposdataGridView.DataSource = grupos.Nombres;
+            grupos.Estudiantes.Add(new Estudiantes((int)SeleEstudiantescomboBox.SelectedValue, SeleEstudiantescomboBox.Text));
+            EstuGruposdataGridView.DataSource = null;
             EstuGruposdataGridView.DataSource = grupos.Estudiantes;
 
 

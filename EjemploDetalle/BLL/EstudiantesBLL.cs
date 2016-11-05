@@ -62,6 +62,14 @@ namespace BLL
 
             return lista;
         }
+        public static List<Estudiantes> GetLista(int id)
+        {
+            List<Estudiantes> lista = new List<Estudiantes>();
+            EjemploDetalleDb db = new EjemploDetalleDb();
+
+            lista = db.Estudiantes.Where(u => u.EstudianteId == id).ToList();
+            return lista;
+        }
         public static List<Estudiantes> GetListaNombres(string aux)
         {
             List<Estudiantes> lista = new List<Estudiantes>();

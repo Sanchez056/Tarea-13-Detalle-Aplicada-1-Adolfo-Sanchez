@@ -8,12 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
+using BLL;
 
 namespace EjemploDetalle.Consulta
 {
     public partial class ConsultaEstudiantes : Form
     {
         Grupos grupo = new Grupos();
+        List<Estudiantes> lista = new List<Estudiantes>();
+
         //public List<GruposEstudiantes> lista = new List<GruposEstudiantes>();
         public ConsultaEstudiantes()
         {
@@ -22,29 +25,23 @@ namespace EjemploDetalle.Consulta
         Utilidades ut = new Utilidades();
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
-            var grupos= BLL.EstudiantesBLL.Buscar(ut.StringToInt(FiltrotextBox.Text));
-           
+            if (!String.IsNullOrEmpty(FiltrotextBox.Text))
+            {
+                lista = EstudiantesBLL.GetLista(ut.StringToInt(FiltrotextBox.Text));
+
+            }
+            else
+            {
+                lista = EstudiantesBLL.GetLista();
+            }
+            ConsultaEstudiantesdataGridView.DataSource = lista;
+
             //cargarEstudiantesGrupo(grupo.Estudiantes);
         }
-        private void CargarFiltrar()
-        {
-            FiltrarcomboBox.Items.Insert(0, "ClienteId");
-            FiltrarcomboBox.Items.Insert(1, "Nombre");
-            FiltrarcomboBox.DataSource = FiltrarcomboBox.Items;
-            FiltrarcomboBox.DisplayMember = "Id";
-          // ConsultaEstudiantesdataGridView.DataSource = BLL.EstudiantesBLL.GetLista();
-        }
-       
 
-        private void cargarEstudiantesGrupo(List<Estudiantes> lista)
+        private void ConsultaEstudiantesdataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var estudiantes = new List<Estudiantes>();
-            foreach (Estudiantes est in lista)
-            {
-               // estudiantes.Add(BLL.EstudiantesBLL.Buscar(est.EstudianteId));
-            }
-           ConsultaEstudiantesdataGridView.DataSource = null;
-           ConsultaEstudiantesdataGridView.DataSource = estudiantes;
+
         }
     }
 }
