@@ -40,8 +40,10 @@
             this.Buscarbutton = new System.Windows.Forms.Button();
             this.BuscarerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.NombreserrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.GruposdataGridView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.BuscarerrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NombreserrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GruposdataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // Titulolabel
@@ -89,7 +91,7 @@
             // Eliminarbutton
             // 
             this.Eliminarbutton.Image = global::EjemploDetalle.Properties.Resources.cancel;
-            this.Eliminarbutton.Location = new System.Drawing.Point(216, 182);
+            this.Eliminarbutton.Location = new System.Drawing.Point(208, 361);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(88, 46);
             this.Eliminarbutton.TabIndex = 8;
@@ -101,7 +103,7 @@
             // Guardarbutton
             // 
             this.Guardarbutton.Image = global::EjemploDetalle.Properties.Resources.save;
-            this.Guardarbutton.Location = new System.Drawing.Point(115, 182);
+            this.Guardarbutton.Location = new System.Drawing.Point(107, 361);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(86, 46);
             this.Guardarbutton.TabIndex = 7;
@@ -113,7 +115,7 @@
             // Nuevobutton
             // 
             this.Nuevobutton.Image = global::EjemploDetalle.Properties.Resources._new;
-            this.Nuevobutton.Location = new System.Drawing.Point(20, 182);
+            this.Nuevobutton.Location = new System.Drawing.Point(12, 361);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(79, 46);
             this.Nuevobutton.TabIndex = 6;
@@ -142,11 +144,20 @@
             // 
             this.NombreserrorProvider.ContainerControl = this;
             // 
+            // GruposdataGridView
+            // 
+            this.GruposdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GruposdataGridView.Location = new System.Drawing.Point(23, 187);
+            this.GruposdataGridView.Name = "GruposdataGridView";
+            this.GruposdataGridView.Size = new System.Drawing.Size(273, 129);
+            this.GruposdataGridView.TabIndex = 9;
+            // 
             // RegistrosEstudiantes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(324, 253);
+            this.ClientSize = new System.Drawing.Size(336, 419);
+            this.Controls.Add(this.GruposdataGridView);
             this.Controls.Add(this.Eliminarbutton);
             this.Controls.Add(this.Guardarbutton);
             this.Controls.Add(this.Nuevobutton);
@@ -160,6 +171,7 @@
             this.Text = "Registros De Estudiantes";
             ((System.ComponentModel.ISupportInitialize)(this.BuscarerrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NombreserrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GruposdataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,5 +190,6 @@
         private System.Windows.Forms.Button Eliminarbutton;
         private System.Windows.Forms.ErrorProvider BuscarerrorProvider;
         private System.Windows.Forms.ErrorProvider NombreserrorProvider;
+        private System.Windows.Forms.DataGridView GruposdataGridView;
     }
 }

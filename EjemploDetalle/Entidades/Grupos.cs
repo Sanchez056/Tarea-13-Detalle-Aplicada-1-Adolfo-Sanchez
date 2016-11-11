@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 
 namespace Entidades
 {
@@ -21,13 +22,14 @@ namespace Entidades
         }
 
 
-
-       /* public Grupos(int grupoId, string nombreGrupo)
+       // [Browsable(false)]
+        public Grupos(int grupoId,string nombreGrupo)
         {
+
             this.GrupoId = grupoId;
             this.Nombres = nombreGrupo;
             this.Estudiantes = new List<Estudiantes>();
-        }*/
+        }
 
 
     }

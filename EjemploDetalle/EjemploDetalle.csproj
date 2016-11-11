@@ -91,11 +91,10 @@
   <ItemGroup>
     <Compile Include="BLL\EstudiantesBLL.cs" />
     <Compile Include="BLL\GruposBLL.cs" />
-    <Compile Include="BLL\GruposEstudiantesBLL.cs" />
     <Compile Include="DAL\EjemploDetalleDb.cs" />
     <Compile Include="Entidades\Estudiantes.cs" />
-    <Compile Include="Entidades\Grupos.cs" />
     <Compile Include="Entidades\GrupoEstudiantes.cs" />
+    <Compile Include="Entidades\Grupos.cs" />
     <Compile Include="UI\Consulta\ConsultaEstudiantes.cs">
       <SubType>Form</SubType>
     </Compile>

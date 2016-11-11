@@ -27,37 +27,40 @@ namespace EjemploDetalle.Registros
 
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
+
             if (validarId("Favor ingresar el id del Estudiantes que desea buscar") && ValidarBuscar())
-                Llenar(GruposBLL.Buscar(ut.StringToInt(GrupoIdtextBox.Text)));
+            Llenar();
+            
 
 
         }
 
     
-        private void Llenar(Grupos g)
+        private void Llenar()
         {
-           
 
-            GrupoIdtextBox.Text = g.GrupoId.ToString();
-            NombrestextBox.Text = g.Nombres;
-            //EstuGruposdataGridView.DataSource = GruposBLL.GetListaGrupos(ut.StringToInt(GrupoIdtextBox.Text));
-            
+            var grup = GruposBLL.Buscar(ut.StringToInt(GrupoIdtextBox.Text));
+            GrupoIdtextBox.Text = grup.GrupoId.ToString();
+            NombrestextBox.Text = grup.Nombres;
+            EstuGruposdataGridView.DataSource = null;
+            EstuGruposdataGridView.DataSource = grup.Estudiantes;
 
         }
 
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
 
-            Grupos cliente = new Grupos();
-            BuscarerrorProvider.Clear();
-            LlenarClase(cliente);
-            if (ValidarTextbox() && ValidarExiste(NombrestextBox.Text))
-            {
-                GruposBLL.Insertar(cliente);
-                Limpiar();
-                limpiarErroresProvider();
+            //Grupos grup = new Grupos();
+            ///BuscarerrorProvider.Clear();
+            // LlenarClase(grup);
+            // if (ValidarTextbox() && ValidarExiste(NombrestextBox.Text))
+            // {
+            grup.Nombres = NombrestextBox.Text;
+                GruposBLL.Insertar(grup);
+                //Limpiar();
+                //limpiarErroresProvider();
                 MessageBox.Show("-_-Guardado Con Exito-_-");
-            }
+           // }
 
            
         }
@@ -65,8 +68,8 @@ namespace EjemploDetalle.Registros
         private void LlenarClase(Grupos grupos)
         {
             grupos.Nombres= NombrestextBox.Text;
-            grupos.Estudiantes = grupos.Estudiantes;
-            SeleEstudiantescomboBox.DataSource = EstudiantesBLL.GetLista();
+            //grupos.Estudiantes = grupos.Estudiantes;
+           // SeleEstudiantescomboBox.DataSource = EstudiantesBLL.GetLista();
             
 
         }
@@ -74,6 +77,7 @@ namespace EjemploDetalle.Registros
         {
             GrupoIdtextBox.Clear();
             NombrestextBox.Clear();
+            //EstuGruposdataGridView.ClearSelection();
             
         }
 
@@ -83,7 +87,7 @@ namespace EjemploDetalle.Registros
             {
                 GruposBLL.Eliminar(ut.StringToInt(GrupoIdtextBox.Text));
                 Limpiar();
-                SeleEstudiantescomboBox.DataSource = EstudiantesBLL.GetLista();
+                //SeleEstudiantescomboBox.DataSource = EstudiantesBLL.GetLista();
                 MessageBox.Show("Se Elimino Corretamente");
 
             }
@@ -105,8 +109,9 @@ namespace EjemploDetalle.Registros
 
 
             SeleEstudiantescomboBox.DataSource = EstudiantesBLL.GetLista();
-            SeleEstudiantescomboBox.DisplayMember = "Nombres";
             SeleEstudiantescomboBox.ValueMember = "EstudianteId";
+            SeleEstudiantescomboBox.DisplayMember = "Nombres";
+          
 
 
 
@@ -120,6 +125,7 @@ namespace EjemploDetalle.Registros
                 )
             {
                NombreserrorProvider.SetError(NombrestextBox, "Favor Ingresar el Nombre de Estudiantes");
+                IngresarEstudianteserrorProvider.SetError(EstuGruposdataGridView, "Favor ingresar el Estudiantes");
 
                 MessageBox.Show("Favor llenar todos los campos obligatorios");
 
@@ -127,10 +133,11 @@ namespace EjemploDetalle.Registros
             if (string.IsNullOrEmpty(NombrestextBox.Text))
             {
                 NombreserrorProvider.Clear();
-                NombreserrorProvider.SetError(NombrestextBox, "Favor ingresar el Nombre del Estudiantes");
+                NombreserrorProvider.SetError(NombrestextBox,"Favor ingresar el Nombre del Estudiantes");
                 return false;
             }
-            
+           
+
             return true;
         }
         private bool validarId(string message)
@@ -182,18 +189,22 @@ namespace EjemploDetalle.Registros
             
         }
 
-        Grupos grupos = new Grupos();
+       // Grupos grupos = new Grupos();
         //Estudiantes estudiantes = new Estudiantes();
         private void Insertarbutton_Click(object sender, EventArgs e)
         {
-            grupos.Estudiantes.Add(new Estudiantes((int)SeleEstudiantescomboBox.SelectedValue, SeleEstudiantescomboBox.Text));
+
+            grup.Estudiantes.Add(new Estudiantes((int)SeleEstudiantescomboBox.SelectedValue, SeleEstudiantescomboBox.Text));
             EstuGruposdataGridView.DataSource = null;
-            EstuGruposdataGridView.DataSource = grupos.Estudiantes;
+            EstuGruposdataGridView.DataSource = grup.Estudiantes;
 
 
         }
 
-        
+        private void EstuGruposdataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
 

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using Entidades;
+using EjemploDetalle.Entidades;
 
 namespace DAL
 {
@@ -17,7 +18,7 @@ namespace DAL
         public virtual DbSet<Grupos> Grupos { get; set; }
         public virtual DbSet<Estudiantes> Estudiantes { get; set; }
 
-         public virtual DbSet<GrupoEstudiantes> GrupoEstudiantes { get; set; }
+       // public virtual DbSet<GrupoEstudiantes> GrupoEstudiantes { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -27,9 +28,9 @@ namespace DAL
                  .WithMany(e => e.Grupos)
                  .Map(ge =>
                  {
-                     ge.MapLeftKey("GrupoId");
-                     ge.MapRightKey("EstudianteId");
-                     ge.ToTable("GruposEstudiantes");
+                     ge.MapLeftKey("EstudianteId");
+                     ge.MapRightKey("GrupoId");
+                     ge.ToTable("GrupoEstudiantes");
                  });
             
 

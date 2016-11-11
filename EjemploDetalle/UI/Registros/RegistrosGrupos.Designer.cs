@@ -39,18 +39,21 @@
             this.Titulolabel = new System.Windows.Forms.Label();
             this.Buscarbutton = new System.Windows.Forms.Button();
             this.SeleEstudiantescomboBox = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.EstuGruposdataGridView = new System.Windows.Forms.DataGridView();
             this.Insertarbutton = new System.Windows.Forms.Button();
             this.BuscarerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.NombreserrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.SelecionEstudianteserrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.DaTaGripwerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.EstuGruposdataGridView)).BeginInit();
+            this.IngresarEstudianteserrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.EstuGruposdataGridView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.BuscarerrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NombreserrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SelecionEstudianteserrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DaTaGripwerrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IngresarEstudianteserrorProvider)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EstuGruposdataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // Eliminarbutton
@@ -146,28 +149,11 @@
             // SeleEstudiantescomboBox
             // 
             this.SeleEstudiantescomboBox.FormattingEnabled = true;
-            this.SeleEstudiantescomboBox.Location = new System.Drawing.Point(23, 203);
+            this.SeleEstudiantescomboBox.Location = new System.Drawing.Point(35, 20);
             this.SeleEstudiantescomboBox.Name = "SeleEstudiantescomboBox";
             this.SeleEstudiantescomboBox.Size = new System.Drawing.Size(121, 21);
             this.SeleEstudiantescomboBox.TabIndex = 18;
             this.SeleEstudiantescomboBox.SelectedIndexChanged += new System.EventHandler(this.SeleEstudiantescomboBox_SelectedIndexChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 187);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 13);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "Selecion Estudiantes:";
-            // 
-            // EstuGruposdataGridView
-            // 
-            this.EstuGruposdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.EstuGruposdataGridView.Location = new System.Drawing.Point(312, 39);
-            this.EstuGruposdataGridView.Name = "EstuGruposdataGridView";
-            this.EstuGruposdataGridView.Size = new System.Drawing.Size(378, 211);
-            this.EstuGruposdataGridView.TabIndex = 21;
             // 
             // Insertarbutton
             // 
@@ -195,15 +181,36 @@
             // 
             this.DaTaGripwerrorProvider.ContainerControl = this;
             // 
+            // IngresarEstudianteserrorProvider
+            // 
+            this.IngresarEstudianteserrorProvider.ContainerControl = this;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.EstuGruposdataGridView);
+            this.groupBox1.Controls.Add(this.SeleEstudiantescomboBox);
+            this.groupBox1.Location = new System.Drawing.Point(303, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(387, 238);
+            this.groupBox1.TabIndex = 23;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
+            // EstuGruposdataGridView
+            // 
+            this.EstuGruposdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.EstuGruposdataGridView.Location = new System.Drawing.Point(21, 47);
+            this.EstuGruposdataGridView.Name = "EstuGruposdataGridView";
+            this.EstuGruposdataGridView.Size = new System.Drawing.Size(349, 177);
+            this.EstuGruposdataGridView.TabIndex = 22;
+            // 
             // RegistrosGrupos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(702, 383);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.Insertarbutton);
-            this.Controls.Add(this.EstuGruposdataGridView);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.SeleEstudiantescomboBox);
             this.Controls.Add(this.Eliminarbutton);
             this.Controls.Add(this.Guardarbutton);
             this.Controls.Add(this.Nuevobutton);
@@ -216,11 +223,13 @@
             this.Name = "RegistrosGrupos";
             this.Text = "Registros de Grupos";
             this.Load += new System.EventHandler(this.RegistrosGrupos_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.EstuGruposdataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BuscarerrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NombreserrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SelecionEstudianteserrorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DaTaGripwerrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IngresarEstudianteserrorProvider)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.EstuGruposdataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,12 +247,13 @@
         private System.Windows.Forms.Label Titulolabel;
         private System.Windows.Forms.Button Buscarbutton;
         private System.Windows.Forms.ComboBox SeleEstudiantescomboBox;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView EstuGruposdataGridView;
         private System.Windows.Forms.Button Insertarbutton;
         private System.Windows.Forms.ErrorProvider BuscarerrorProvider;
         private System.Windows.Forms.ErrorProvider NombreserrorProvider;
         private System.Windows.Forms.ErrorProvider SelecionEstudianteserrorProvider;
         private System.Windows.Forms.ErrorProvider DaTaGripwerrorProvider;
+        private System.Windows.Forms.ErrorProvider IngresarEstudianteserrorProvider;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridView EstuGruposdataGridView;
     }
 }

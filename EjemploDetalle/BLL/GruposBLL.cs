@@ -5,36 +5,55 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using Entidades;
+using System.Data.Entity;
 
 namespace BLL
 {
    public  class GruposBLL
     {
-        public static void Insertar(Grupos gp)
+        public static bool Insertar(Grupos gp)
         {
-            //bool retorno = false;
+            bool retorno = false;
             try
             {
                 var db = new EjemploDetalleDb();
 
                 db.Grupos.Add(gp);
+                var gr = db.Grupos.Add(gp);
+                foreach(var est in gp.Estudiantes)
+                {
+                    db.Entry(est).State = EntityState.Unchanged;
+                }
                 db.SaveChanges();
-                db.Dispose();
+                //db.Dispose();
 
-                //retorno = true;
+                retorno = true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw ex;
+                throw;
             }
 
-            // return retorno;
+             return retorno;
         }
         public static Grupos Buscar(int id)
         {
-            var db = new EjemploDetalleDb();
+            Grupos grupos = new Grupos();
+            using (var db = new EjemploDetalleDb())
+            {
+                try
+                {
+                    grupos = db.Grupos.Find(id);
+                    grupos.Estudiantes.Count();
 
-            return db.Grupos.Find(id);
+                }
+                catch(Exception)
+                {
+                    throw;
+                }
+            }
+
+                return grupos;
 
         }
 

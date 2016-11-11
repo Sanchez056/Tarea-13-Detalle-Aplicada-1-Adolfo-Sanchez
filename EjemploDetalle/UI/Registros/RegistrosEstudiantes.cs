@@ -21,18 +21,22 @@ namespace EjemploDetalle.Registros
         Utilidades ut = new Utilidades();
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
+
             if (validarId("Favor ingresar el id del Estudiantes que desea buscar") && ValidarBuscar())
-                Llenar(EstudiantesBLL.Buscar(ut.StringToInt(EstudiantesIdtextBox.Text)));
+            Llenar();
+             }
 
-
-        }
-
-       private void Llenar( Estudiantes estudiantes)
+        Estudiantes est = new Estudiantes();
+       private void Llenar()
         {
-            EstudiantesIdtextBox.Text = estudiantes.EstudianteId.ToString();
-            NombrestextBox.Text = estudiantes.Nombres;
-            
-       
+           
+            var est= EstudiantesBLL.Buscar(ut.StringToInt(EstudiantesIdtextBox.Text));
+            EstudiantesIdtextBox.Text = est.EstudianteId.ToString();
+            NombrestextBox.Text = est.Nombres;
+            GruposdataGridView.DataSource = null;
+            GruposdataGridView.DataSource = est.Grupos;
+
+
         }
         Estudiantes estudiante = new Estudiantes();
        

@@ -23,18 +23,13 @@ namespace EjemploDetalle.Consulta
             InitializeComponent();
         }
         Utilidades ut = new Utilidades();
+        Estudiantes estudiantes = new Estudiantes();
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
-            if (!String.IsNullOrEmpty(FiltrotextBox.Text))
-            {
-                lista = EstudiantesBLL.GetLista(ut.StringToInt(FiltrotextBox.Text));
-
-            }
-            else
-            {
-                lista = EstudiantesBLL.GetLista();
-            }
-            ConsultaEstudiantesdataGridView.DataSource = lista;
+            //var grupos = BLL.GruposBLL.Buscar((int)ConsultaEstudiantesdataGridView.CurrentRow.Cells[0].Value);
+           
+              var grupos = BLL.GruposBLL.Buscar((int)ConsultaEstudiantesdataGridView.CurrentRow.Cells[0].Value);
+            ConsultaEstudiantesdataGridView.DataSource = estudiantes.Grupos;
 
             //cargarEstudiantesGrupo(grupo.Estudiantes);
         }

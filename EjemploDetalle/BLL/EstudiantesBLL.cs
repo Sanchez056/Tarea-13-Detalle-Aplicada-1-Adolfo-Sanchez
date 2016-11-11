@@ -5,15 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using Entidades;
-
+using System.Windows.Forms;
 
 namespace BLL
 {
    public  class EstudiantesBLL
     {
-        public static void  Insertar(Estudiantes est)
+        public static bool  Insertar(Estudiantes est)
         {
-            //bool retorno = false;
+           bool retorno = false;
             try
             {
                 var db = new EjemploDetalleDb();
@@ -22,21 +22,33 @@ namespace BLL
                 db.SaveChanges();
                 db.Dispose();
 
-                //retorno = true;
+                retorno = true;
             }
             catch (Exception ex)
             {
-                throw ex;
+                MessageBox.Show(ex.ToString());
             }
 
-           // return retorno;
+            return retorno;
         }
         public static Estudiantes Buscar(int id)
         {
-            var db = new EjemploDetalleDb();
+            Estudiantes estudiante = new Estudiantes();
+            using (var db = new EjemploDetalleDb())
+            {
+                
+                try
+                {
+                    estudiante = db.Estudiantes.Find(id);
+                    estudiante.Grupos.Count();
+                }
+                catch (Exception e)
+                {
+                    throw e;
+                }
 
-            return db.Estudiantes.Find(id);
-
+                return estudiante;
+            }
 
         }
 
@@ -81,5 +93,6 @@ namespace BLL
             return lista;
 
         }
+
     }
 }
