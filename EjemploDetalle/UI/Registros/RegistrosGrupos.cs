@@ -17,8 +17,7 @@ namespace EjemploDetalle.Registros
         public RegistrosGrupos()
         {
             InitializeComponent();
-           //LLenarCombo();
-          
+
 
         }
         Utilidades ut = new Utilidades();
@@ -29,19 +28,15 @@ namespace EjemploDetalle.Registros
         {
 
             if (validarId("Favor ingresar el id del Estudiantes que desea buscar") && ValidarBuscar())
-            Llenar();
-            
-
-
+                Llenar(GruposBLL.Buscar(ut.StringToInt(GrupoIdtextBox.Text)));
         }
 
-    
-        private void Llenar()
-        {
 
+        private void Llenar(Grupos grups)
+        {
             var grup = GruposBLL.Buscar(ut.StringToInt(GrupoIdtextBox.Text));
-            GrupoIdtextBox.Text = grup.GrupoId.ToString();
-            NombrestextBox.Text = grup.Nombres;
+            GrupoIdtextBox.Text = grups.GrupoId.ToString();
+            NombrestextBox.Text = grups.Nombres;
             EstuGruposdataGridView.DataSource = null;
             EstuGruposdataGridView.DataSource = grup.Estudiantes;
 
@@ -50,35 +45,34 @@ namespace EjemploDetalle.Registros
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
 
-            //Grupos grup = new Grupos();
-            ///BuscarerrorProvider.Clear();
-            // LlenarClase(grup);
-            // if (ValidarTextbox() && ValidarExiste(NombrestextBox.Text))
-            // {
-            grup.Nombres = NombrestextBox.Text;
-                GruposBLL.Insertar(grup);
-                //Limpiar();
-                //limpiarErroresProvider();
-                MessageBox.Show("-_-Guardado Con Exito-_-");
-           // }
 
-           
+            BuscarerrorProvider.Clear();
+            LlenarClase(grup);
+
+            if (ValidarTextbox() && ValidarExiste(NombrestextBox.Text))
+            {
+
+
+                GruposBLL.Insertar(grup);
+                Limpiar();
+                limpiarErroresProvider();
+                MessageBox.Show("-_-Guardado Con Exito-_-");
+            }
+
+
         }
-        Estudiantes Es =new Estudiantes();
         private void LlenarClase(Grupos grupos)
         {
-            grupos.Nombres= NombrestextBox.Text;
-            //grupos.Estudiantes = grupos.Estudiantes;
-           // SeleEstudiantescomboBox.DataSource = EstudiantesBLL.GetLista();
-            
+            grupos.Nombres = NombrestextBox.Text;
 
         }
         private void Limpiar()
         {
             GrupoIdtextBox.Clear();
             NombrestextBox.Clear();
-            //EstuGruposdataGridView.ClearSelection();
-            
+            EstuGruposdataGridView.DataSource = null;
+
+
         }
 
         private void Eliminarbutton_Click(object sender, EventArgs e)
@@ -87,7 +81,6 @@ namespace EjemploDetalle.Registros
             {
                 GruposBLL.Eliminar(ut.StringToInt(GrupoIdtextBox.Text));
                 Limpiar();
-                //SeleEstudiantescomboBox.DataSource = EstudiantesBLL.GetLista();
                 MessageBox.Show("Se Elimino Corretamente");
 
             }
@@ -104,28 +97,30 @@ namespace EjemploDetalle.Registros
         }
         public List<Estudiantes> lista = new List<Estudiantes>();
 
-        private void  LLenarCombo()
-        {
 
+        public int ColumnIndex { get; private set; }
+
+        private void LLenarCombo()
+        {
 
             SeleEstudiantescomboBox.DataSource = EstudiantesBLL.GetLista();
             SeleEstudiantescomboBox.ValueMember = "EstudianteId";
             SeleEstudiantescomboBox.DisplayMember = "Nombres";
-          
+
 
 
 
         }
+
         private bool ValidarTextbox()
         {
 
-            if (string.IsNullOrEmpty(NombrestextBox.Text) &&
-                string.IsNullOrEmpty(EstuGruposdataGridView.Text)
+            if (string.IsNullOrEmpty(NombrestextBox.Text))
 
-                )
+
+
             {
-               NombreserrorProvider.SetError(NombrestextBox, "Favor Ingresar el Nombre de Estudiantes");
-                IngresarEstudianteserrorProvider.SetError(EstuGruposdataGridView, "Favor ingresar el Estudiantes");
+                NombreserrorProvider.SetError(NombrestextBox, "Favor Ingresar el Nombre de Grupo");
 
                 MessageBox.Show("Favor llenar todos los campos obligatorios");
 
@@ -133,10 +128,13 @@ namespace EjemploDetalle.Registros
             if (string.IsNullOrEmpty(NombrestextBox.Text))
             {
                 NombreserrorProvider.Clear();
-                NombreserrorProvider.SetError(NombrestextBox,"Favor ingresar el Nombre del Estudiantes");
+                NombreserrorProvider.SetError(NombrestextBox, "Favor ingresar el Nombre del Grupo");
                 return false;
             }
-           
+
+
+
+
 
             return true;
         }
@@ -153,8 +151,13 @@ namespace EjemploDetalle.Registros
                 return true;
             }
         }
+
+        //-----------
+
+        //-----------
         private bool ValidarBuscar()
         {
+
             if (GruposBLL.Buscar(ut.StringToInt(GrupoIdtextBox.Text)) == null)
             {
                 MessageBox.Show("Este registro no existe");
@@ -165,6 +168,9 @@ namespace EjemploDetalle.Registros
 
 
         }
+        //---
+
+        //--
 
         private bool ValidarExiste(string aux)
         {
@@ -178,34 +184,53 @@ namespace EjemploDetalle.Registros
         //-----
         private void limpiarErroresProvider()
         {
-           NombreserrorProvider.Clear();
-
+            NombreserrorProvider.Clear();
+            IngresarEstudianteserrorProvider.Clear();
 
         }
 
 
         private void SeleEstudiantescomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
-       // Grupos grupos = new Grupos();
-        //Estudiantes estudiantes = new Estudiantes();
+
         private void Insertarbutton_Click(object sender, EventArgs e)
         {
 
+
             grup.Estudiantes.Add(new Estudiantes((int)SeleEstudiantescomboBox.SelectedValue, SeleEstudiantescomboBox.Text));
+
             EstuGruposdataGridView.DataSource = null;
             EstuGruposdataGridView.DataSource = grup.Estudiantes;
 
 
+
         }
+
+
+
+
+
+
+
+
+
 
         private void EstuGruposdataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+        }
+
+        private void Guitarbutton_Click(object sender, EventArgs e)
+        {
+            
+
 
         }
     }
 }
+
 
 

@@ -47,6 +47,7 @@
             this.IngresarEstudianteserrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.EstuGruposdataGridView = new System.Windows.Forms.DataGridView();
+            this.OtroNombreerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.BuscarerrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NombreserrorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SelecionEstudianteserrorProvider)).BeginInit();
@@ -54,12 +55,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.IngresarEstudianteserrorProvider)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EstuGruposdataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OtroNombreerrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // Eliminarbutton
             // 
             this.Eliminarbutton.Image = global::EjemploDetalle.Properties.Resources.cancel;
-            this.Eliminarbutton.Location = new System.Drawing.Point(205, 262);
+            this.Eliminarbutton.Location = new System.Drawing.Point(248, 409);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(88, 46);
             this.Eliminarbutton.TabIndex = 17;
@@ -71,7 +73,7 @@
             // Guardarbutton
             // 
             this.Guardarbutton.Image = global::EjemploDetalle.Properties.Resources.save;
-            this.Guardarbutton.Location = new System.Drawing.Point(104, 262);
+            this.Guardarbutton.Location = new System.Drawing.Point(147, 409);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(86, 46);
             this.Guardarbutton.TabIndex = 16;
@@ -83,7 +85,7 @@
             // Nuevobutton
             // 
             this.Nuevobutton.Image = global::EjemploDetalle.Properties.Resources._new;
-            this.Nuevobutton.Location = new System.Drawing.Point(9, 262);
+            this.Nuevobutton.Location = new System.Drawing.Point(52, 409);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(79, 46);
             this.Nuevobutton.TabIndex = 15;
@@ -157,11 +159,11 @@
             // 
             // Insertarbutton
             // 
-            this.Insertarbutton.Location = new System.Drawing.Point(450, 256);
+            this.Insertarbutton.Location = new System.Drawing.Point(180, 8);
             this.Insertarbutton.Name = "Insertarbutton";
             this.Insertarbutton.Size = new System.Drawing.Size(87, 42);
             this.Insertarbutton.TabIndex = 22;
-            this.Insertarbutton.Text = "Insertar";
+            this.Insertarbutton.Text = "Agregar";
             this.Insertarbutton.UseVisualStyleBackColor = true;
             this.Insertarbutton.Click += new System.EventHandler(this.Insertarbutton_Click);
             // 
@@ -188,29 +190,34 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.EstuGruposdataGridView);
+            this.groupBox1.Controls.Add(this.Insertarbutton);
             this.groupBox1.Controls.Add(this.SeleEstudiantescomboBox);
-            this.groupBox1.Location = new System.Drawing.Point(303, 12);
+            this.groupBox1.Location = new System.Drawing.Point(13, 179);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(387, 238);
+            this.groupBox1.Size = new System.Drawing.Size(405, 212);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Agregar Estudiantes";
             // 
             // EstuGruposdataGridView
             // 
             this.EstuGruposdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.EstuGruposdataGridView.Location = new System.Drawing.Point(21, 47);
+            this.EstuGruposdataGridView.Location = new System.Drawing.Point(6, 56);
             this.EstuGruposdataGridView.Name = "EstuGruposdataGridView";
-            this.EstuGruposdataGridView.Size = new System.Drawing.Size(349, 177);
+            this.EstuGruposdataGridView.Size = new System.Drawing.Size(349, 126);
             this.EstuGruposdataGridView.TabIndex = 22;
+            this.EstuGruposdataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.EstuGruposdataGridView_CellContentClick);
+            // 
+            // OtroNombreerrorProvider
+            // 
+            this.OtroNombreerrorProvider.ContainerControl = this;
             // 
             // RegistrosGrupos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(702, 383);
+            this.ClientSize = new System.Drawing.Size(408, 472);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.Insertarbutton);
             this.Controls.Add(this.Eliminarbutton);
             this.Controls.Add(this.Guardarbutton);
             this.Controls.Add(this.Nuevobutton);
@@ -230,6 +237,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.IngresarEstudianteserrorProvider)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.EstuGruposdataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OtroNombreerrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -255,5 +263,6 @@
         private System.Windows.Forms.ErrorProvider IngresarEstudianteserrorProvider;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView EstuGruposdataGridView;
+        private System.Windows.Forms.ErrorProvider OtroNombreerrorProvider;
     }
 }

@@ -53,6 +53,6 @@
 
         #endregion
 
-        private Microsoft.Reporting.WinForms.ReportViewer EstudiantesreportViewer;
+        public Microsoft.Reporting.WinForms.ReportViewer EstudiantesreportViewer;
     }
 }

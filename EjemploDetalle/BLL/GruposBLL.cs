@@ -39,21 +39,9 @@ namespace BLL
         public static Grupos Buscar(int id)
         {
             Grupos grupos = new Grupos();
-            using (var db = new EjemploDetalleDb())
-            {
-                try
-                {
-                    grupos = db.Grupos.Find(id);
-                    grupos.Estudiantes.Count();
-
-                }
-                catch(Exception)
-                {
-                    throw;
-                }
-            }
-
-                return grupos;
+            var db = new EjemploDetalleDb();
+            grupos = db.Grupos.Find(id);
+            return grupos;
 
         }
 

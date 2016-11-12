@@ -28,18 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ConsultaClienterlabel = new System.Windows.Forms.Label();
             this.Imprimirbutton = new System.Windows.Forms.Button();
-            this.ConsultaEstudiantesdataGridView = new System.Windows.Forms.DataGridView();
-            this.Desdelabel = new System.Windows.Forms.Label();
             this.Buscarbutton = new System.Windows.Forms.Button();
             this.FiltrotextBox = new System.Windows.Forms.TextBox();
-            this.Hastalabel = new System.Windows.Forms.Label();
-            this.HastadateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.DesdeDateTimePicke = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.FiltrarcomboBox = new System.Windows.Forms.ComboBox();
+            this.groupBox = new System.Windows.Forms.GroupBox();
+            this.ConsultaEstudiantesdataGridView = new System.Windows.Forms.DataGridView();
+            this.NombreEstudiantetextBox = new System.Windows.Forms.TextBox();
+            this.groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ConsultaEstudiantesdataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,46 +55,23 @@
             // 
             this.Imprimirbutton.AutoSize = true;
             this.Imprimirbutton.ForeColor = System.Drawing.Color.Black;
-            this.Imprimirbutton.Location = new System.Drawing.Point(16, 478);
+            this.Imprimirbutton.Image = global::EjemploDetalle.Properties.Resources.print;
+            this.Imprimirbutton.Location = new System.Drawing.Point(35, 427);
             this.Imprimirbutton.Name = "Imprimirbutton";
             this.Imprimirbutton.Size = new System.Drawing.Size(93, 57);
             this.Imprimirbutton.TabIndex = 114;
             this.Imprimirbutton.Text = "Imprimir";
             this.Imprimirbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Imprimirbutton.UseVisualStyleBackColor = true;
-            // 
-            // ConsultaEstudiantesdataGridView
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ConsultaEstudiantesdataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.ConsultaEstudiantesdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ConsultaEstudiantesdataGridView.Location = new System.Drawing.Point(13, 156);
-            this.ConsultaEstudiantesdataGridView.Name = "ConsultaEstudiantesdataGridView";
-            this.ConsultaEstudiantesdataGridView.Size = new System.Drawing.Size(529, 309);
-            this.ConsultaEstudiantesdataGridView.TabIndex = 113;
-            this.ConsultaEstudiantesdataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ConsultaEstudiantesdataGridView_CellContentClick);
-            // 
-            // Desdelabel
-            // 
-            this.Desdelabel.AutoSize = true;
-            this.Desdelabel.Location = new System.Drawing.Point(33, 134);
-            this.Desdelabel.Name = "Desdelabel";
-            this.Desdelabel.Size = new System.Drawing.Size(38, 13);
-            this.Desdelabel.TabIndex = 112;
-            this.Desdelabel.Text = "Desde";
+            this.Imprimirbutton.Click += new System.EventHandler(this.Imprimirbutton_Click);
             // 
             // Buscarbutton
             // 
             this.Buscarbutton.ForeColor = System.Drawing.Color.Black;
-            this.Buscarbutton.Location = new System.Drawing.Point(447, 46);
+            this.Buscarbutton.Image = global::EjemploDetalle.Properties.Resources.search;
+            this.Buscarbutton.Location = new System.Drawing.Point(360, 42);
             this.Buscarbutton.Name = "Buscarbutton";
-            this.Buscarbutton.Size = new System.Drawing.Size(95, 61);
+            this.Buscarbutton.Size = new System.Drawing.Size(85, 61);
             this.Buscarbutton.TabIndex = 111;
             this.Buscarbutton.Text = "Buscar";
             this.Buscarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -105,49 +80,15 @@
             // 
             // FiltrotextBox
             // 
-            this.FiltrotextBox.Location = new System.Drawing.Point(197, 81);
+            this.FiltrotextBox.Location = new System.Drawing.Point(178, 83);
             this.FiltrotextBox.Name = "FiltrotextBox";
-            this.FiltrotextBox.Size = new System.Drawing.Size(244, 20);
+            this.FiltrotextBox.Size = new System.Drawing.Size(176, 20);
             this.FiltrotextBox.TabIndex = 110;
-            // 
-            // Hastalabel
-            // 
-            this.Hastalabel.AutoSize = true;
-            this.Hastalabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Hastalabel.Location = new System.Drawing.Point(194, 129);
-            this.Hastalabel.Name = "Hastalabel";
-            this.Hastalabel.Size = new System.Drawing.Size(47, 18);
-            this.Hastalabel.TabIndex = 109;
-            this.Hastalabel.Text = "Hasta";
-            // 
-            // HastadateTimePicker
-            // 
-            this.HastadateTimePicker.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HastadateTimePicker.CustomFormat = "dd/MM/yyyy";
-            this.HastadateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HastadateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.HastadateTimePicker.Location = new System.Drawing.Point(246, 129);
-            this.HastadateTimePicker.Margin = new System.Windows.Forms.Padding(2);
-            this.HastadateTimePicker.Name = "HastadateTimePicker";
-            this.HastadateTimePicker.Size = new System.Drawing.Size(112, 22);
-            this.HastadateTimePicker.TabIndex = 108;
-            // 
-            // DesdeDateTimePicke
-            // 
-            this.DesdeDateTimePicke.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DesdeDateTimePicke.CustomFormat = "dd/MM/yyyy";
-            this.DesdeDateTimePicke.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DesdeDateTimePicke.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DesdeDateTimePicke.Location = new System.Drawing.Point(76, 125);
-            this.DesdeDateTimePicke.Margin = new System.Windows.Forms.Padding(2);
-            this.DesdeDateTimePicke.Name = "DesdeDateTimePicke";
-            this.DesdeDateTimePicke.Size = new System.Drawing.Size(114, 22);
-            this.DesdeDateTimePicke.TabIndex = 107;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 83);
+            this.label1.Location = new System.Drawing.Point(13, 83);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 106;
@@ -157,29 +98,54 @@
             // 
             this.FiltrarcomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.FiltrarcomboBox.FormattingEnabled = true;
-            this.FiltrarcomboBox.Location = new System.Drawing.Point(69, 80);
+            this.FiltrarcomboBox.Location = new System.Drawing.Point(51, 80);
             this.FiltrarcomboBox.Name = "FiltrarcomboBox";
             this.FiltrarcomboBox.Size = new System.Drawing.Size(121, 21);
             this.FiltrarcomboBox.TabIndex = 105;
+            // 
+            // groupBox
+            // 
+            this.groupBox.Controls.Add(this.NombreEstudiantetextBox);
+            this.groupBox.Controls.Add(this.ConsultaEstudiantesdataGridView);
+            this.groupBox.Location = new System.Drawing.Point(16, 141);
+            this.groupBox.Name = "groupBox";
+            this.groupBox.Size = new System.Drawing.Size(429, 258);
+            this.groupBox.TabIndex = 116;
+            this.groupBox.TabStop = false;
+            this.groupBox.Text = "Grupos De Estudiante:";
+            // 
+            // ConsultaEstudiantesdataGridView
+            // 
+            this.ConsultaEstudiantesdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ConsultaEstudiantesdataGridView.Location = new System.Drawing.Point(19, 41);
+            this.ConsultaEstudiantesdataGridView.Name = "ConsultaEstudiantesdataGridView";
+            this.ConsultaEstudiantesdataGridView.Size = new System.Drawing.Size(395, 211);
+            this.ConsultaEstudiantesdataGridView.TabIndex = 0;
+            // 
+            // NombreEstudiantetextBox
+            // 
+            this.NombreEstudiantetextBox.Location = new System.Drawing.Point(124, 15);
+            this.NombreEstudiantetextBox.Name = "NombreEstudiantetextBox";
+            this.NombreEstudiantetextBox.Size = new System.Drawing.Size(169, 20);
+            this.NombreEstudiantetextBox.TabIndex = 2;
             // 
             // ConsultaEstudiantes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(562, 548);
+            this.ClientSize = new System.Drawing.Size(462, 511);
+            this.Controls.Add(this.groupBox);
             this.Controls.Add(this.ConsultaClienterlabel);
             this.Controls.Add(this.Imprimirbutton);
-            this.Controls.Add(this.ConsultaEstudiantesdataGridView);
-            this.Controls.Add(this.Desdelabel);
             this.Controls.Add(this.Buscarbutton);
             this.Controls.Add(this.FiltrotextBox);
-            this.Controls.Add(this.Hastalabel);
-            this.Controls.Add(this.HastadateTimePicker);
-            this.Controls.Add(this.DesdeDateTimePicke);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.FiltrarcomboBox);
             this.Name = "ConsultaEstudiantes";
             this.Text = "Consulta Estudiantes";
+            this.Load += new System.EventHandler(this.ConsultaEstudiantes_Load);
+            this.groupBox.ResumeLayout(false);
+            this.groupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ConsultaEstudiantesdataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -190,14 +156,12 @@
 
         private System.Windows.Forms.Label ConsultaClienterlabel;
         private System.Windows.Forms.Button Imprimirbutton;
-        private System.Windows.Forms.DataGridView ConsultaEstudiantesdataGridView;
-        private System.Windows.Forms.Label Desdelabel;
         private System.Windows.Forms.Button Buscarbutton;
         private System.Windows.Forms.TextBox FiltrotextBox;
-        private System.Windows.Forms.Label Hastalabel;
-        private System.Windows.Forms.DateTimePicker HastadateTimePicker;
-        private System.Windows.Forms.DateTimePicker DesdeDateTimePicke;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox FiltrarcomboBox;
+        private System.Windows.Forms.GroupBox groupBox;
+        private System.Windows.Forms.DataGridView ConsultaEstudiantesdataGridView;
+        private System.Windows.Forms.TextBox NombreEstudiantetextBox;
     }
 }

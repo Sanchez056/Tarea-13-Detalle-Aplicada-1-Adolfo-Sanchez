@@ -20,7 +20,7 @@ namespace EjemploDetalle.Consulta
         private void ReporGrupos_Load(object sender, EventArgs e)
         {
 
-            this.reportViewer1.RefreshReport();
+            this.GruposreportViewer.RefreshReport();
         }
     }
 }

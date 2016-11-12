@@ -143,6 +143,7 @@
       <DependentUpon>RegistrosGrupos.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="UI\Registros\RowIndex.cs" />
     <Compile Include="Utilidades.cs" />
     <EmbeddedResource Include="UI\Consulta\ConsultaEstudiantes.resx">
       <DependentUpon>ConsultaEstudiantes.cs</DependentUpon>
@@ -201,6 +202,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>EjemploDetalleDb.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\print.ico" />
+    <None Include="Resources\printer.ico" />
+    <None Include="Resources\printer1_32x32-32.ico" />
     <None Include="Resources\cancel.ico" />
     <None Include="Resources\new.ico" />
     <None Include="Resources\search.ico" />

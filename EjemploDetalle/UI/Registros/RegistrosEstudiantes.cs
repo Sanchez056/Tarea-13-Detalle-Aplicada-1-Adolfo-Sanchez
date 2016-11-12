@@ -23,18 +23,21 @@ namespace EjemploDetalle.Registros
         {
 
             if (validarId("Favor ingresar el id del Estudiantes que desea buscar") && ValidarBuscar())
-            Llenar();
-             }
+                Llenar(EstudiantesBLL.Buscar(ut.StringToInt(EstudiantesIdtextBox.Text)));
+            
+            
+        }
 
-        Estudiantes est = new Estudiantes();
-       private void Llenar()
+      // Estudiantes est = new Estudiantes();
+       private void Llenar(Estudiantes estu)
         {
-           
-            var est= EstudiantesBLL.Buscar(ut.StringToInt(EstudiantesIdtextBox.Text));
-            EstudiantesIdtextBox.Text = est.EstudianteId.ToString();
-            NombrestextBox.Text = est.Nombres;
+
+
+            var est= GruposBLL.Buscar(ut.StringToInt(EstudiantesIdtextBox.Text));
+            EstudiantesIdtextBox.Text = estu.EstudianteId.ToString();
+            NombrestextBox.Text = estu.Nombres;
             GruposdataGridView.DataSource = null;
-            GruposdataGridView.DataSource = est.Grupos;
+            GruposdataGridView.DataSource = estu.Grupos;
 
 
         }
@@ -64,6 +67,7 @@ namespace EjemploDetalle.Registros
         {
             EstudiantesIdtextBox.Clear();
             NombrestextBox.Clear();
+            GruposdataGridView.DataSource = null;
             limpiarErroresProvider();
         }
 
@@ -123,6 +127,9 @@ namespace EjemploDetalle.Registros
         }
         private bool ValidarBuscar()
         {
+
+            
+
             if (EstudiantesBLL.Buscar(ut.StringToInt(EstudiantesIdtextBox.Text)) == null)
             {
                 MessageBox.Show("Este registro no existe");
@@ -143,6 +150,7 @@ namespace EjemploDetalle.Registros
             }
             return true;
         }
+       
         //-----
         private void limpiarErroresProvider()
         {
