@@ -92,6 +92,16 @@
     <Compile Include="BLL\EstudiantesBLL.cs" />
     <Compile Include="BLL\GruposBLL.cs" />
     <Compile Include="DAL\EjemploDetalleDb.cs" />
+    <Compile Include="EjemploDetalleDbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EjemploDetalleDbDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="EjemploDetalleDbDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EjemploDetalleDbDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Entidades\Estudiantes.cs" />
     <Compile Include="Entidades\GrupoEstudiantes.cs" />
     <Compile Include="Entidades\Grupos.cs" />
@@ -145,6 +155,7 @@
     </Compile>
     <Compile Include="UI\Registros\RowIndex.cs" />
     <Compile Include="Utilidades.cs" />
+    <EmbeddedResource Include="Reportes\ListadosDeEstudiantes.rdlc" />
     <EmbeddedResource Include="UI\Consulta\ConsultaEstudiantes.resx">
       <DependentUpon>ConsultaEstudiantes.cs</DependentUpon>
     </EmbeddedResource>
@@ -178,8 +189,29 @@
       <DependentUpon>RegistrosGrupos.cs</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\ListadosDeEstudiantes.rdlc" />
     <EmbeddedResource Include="Reportes\ListadosGrupos.rdlc" />
+    <None Include="EjemploDetalleDbDataSet.xsc">
+      <DependentUpon>EjemploDetalleDbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="EjemploDetalleDbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EjemploDetalleDbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EjemploDetalleDbDataSet.xss">
+      <DependentUpon>EjemploDetalleDbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="EjemploDetalleDbDataSet1.xsc">
+      <DependentUpon>EjemploDetalleDbDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="EjemploDetalleDbDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EjemploDetalleDbDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EjemploDetalleDbDataSet1.xss">
+      <DependentUpon>EjemploDetalleDbDataSet1.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

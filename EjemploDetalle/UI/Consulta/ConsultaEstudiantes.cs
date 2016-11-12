@@ -69,9 +69,9 @@ namespace EjemploDetalle.Consulta
         private void Imprimirbutton_Click(object sender, EventArgs e)
         { 
             ReporEstudiantes viewer = new ReporEstudiantes();
-            LlenarId(EstudiantesBLL.Buscar(ut.StringToInt(FiltrotextBox.Text)));
-            var est = EstudiantesBLL.Buscar(ut.StringToInt(FiltrotextBox.Text));
-            ConsultaEstudiantesdataGridView.DataSource = null;
+           // LlenarId(EstudiantesBLL.Buscar(ut.StringToInt(FiltrotextBox.Text)));
+           // var est = EstudiantesBLL.Buscar(ut.StringToInt(FiltrotextBox.Text));
+           // ConsultaEstudiantesdataGridView.DataSource = null;
 
             viewer.EstudiantesreportViewer.Reset();
             viewer.EstudiantesreportViewer.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local;
@@ -85,7 +85,7 @@ namespace EjemploDetalle.Consulta
 
             viewer.EstudiantesreportViewer.LocalReport.DataSources.Add(
 
-             new Microsoft.Reporting.WinForms.ReportDataSource("EstudiantesDataSet",estudiantes.Grupos));
+             new Microsoft.Reporting.WinForms.ReportDataSource("EstudiantesDataSet",ConsultaEstudiantesdataGridView.DataSource));
             
 
 
