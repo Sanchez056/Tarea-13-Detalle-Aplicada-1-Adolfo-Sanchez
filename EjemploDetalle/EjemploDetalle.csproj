@@ -97,11 +97,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EjemploDetalleDbDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="EjemploDetalleDbDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EjemploDetalleDbDataSet1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Entidades\Estudiantes.cs" />
     <Compile Include="Entidades\GrupoEstudiantes.cs" />
     <Compile Include="Entidades\Grupos.cs" />
@@ -200,17 +195,6 @@
     </None>
     <None Include="EjemploDetalleDbDataSet.xss">
       <DependentUpon>EjemploDetalleDbDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="EjemploDetalleDbDataSet1.xsc">
-      <DependentUpon>EjemploDetalleDbDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="EjemploDetalleDbDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>EjemploDetalleDbDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="EjemploDetalleDbDataSet1.xss">
-      <DependentUpon>EjemploDetalleDbDataSet1.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
