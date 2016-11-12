@@ -57,7 +57,6 @@ namespace EjemploDetalle.Consulta
         {
             ReporGrupos viewer = new ReporGrupos();
 
-
             viewer.GruposreportViewer.Reset();
             viewer.GruposreportViewer.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local;
 
