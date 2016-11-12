@@ -23,7 +23,7 @@ namespace EjemploDetalle.Consulta
         }
         Utilidades ut = new Utilidades();
         Estudiantes estudiantes = new Estudiantes();
-        private object estu;
+       // private object estu;
 
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
@@ -47,23 +47,15 @@ namespace EjemploDetalle.Consulta
 
 
         }
-        private void LlenarNombre(string aux)
-        {
-
-            var est = EstudiantesBLL.GetListaNombres((FiltrotextBox.Text));
-            // FiltrotextBox.Text = estu.EstudianteId.ToString();
-            FiltrotextBox.Text = estudiantes.Nombres;
-            ConsultaEstudiantesdataGridView.DataSource = null;
-            ConsultaEstudiantesdataGridView.DataSource = estudiantes.Grupos;
+       
 
 
-        }
-        
 
-            
-    
-        
-        
+
+
+
+
+
         private void ConsultaEstudiantesdataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -77,8 +69,10 @@ namespace EjemploDetalle.Consulta
         private void Imprimirbutton_Click(object sender, EventArgs e)
         { 
             ReporEstudiantes viewer = new ReporEstudiantes();
-            
-           
+            LlenarId(EstudiantesBLL.Buscar(ut.StringToInt(FiltrotextBox.Text)));
+            var est = EstudiantesBLL.Buscar(ut.StringToInt(FiltrotextBox.Text));
+            ConsultaEstudiantesdataGridView.DataSource = null;
+
             viewer.EstudiantesreportViewer.Reset();
             viewer.EstudiantesreportViewer.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Local;
 
@@ -86,13 +80,13 @@ namespace EjemploDetalle.Consulta
 
 
             viewer.EstudiantesreportViewer.LocalReport.DataSources.Clear();
-            ConsultaEstudiantesdataGridView.DataSource = null;
+
+            //var ests = EstudiantesBLL.Buscar(ut.StringToInt(FiltrotextBox.Text));
 
             viewer.EstudiantesreportViewer.LocalReport.DataSources.Add(
 
-            new Microsoft.Reporting.WinForms.ReportDataSource("EstudiantesDataSet", grupo.Estudiantes)); 
+             new Microsoft.Reporting.WinForms.ReportDataSource("EstudiantesDataSet",estudiantes.Grupos));
             
-            // var est = EstudiantesBLL.Buscar(ut.StringToInt(FiltrotextBox.Text
 
 
             viewer.EstudiantesreportViewer.LocalReport.Refresh();
